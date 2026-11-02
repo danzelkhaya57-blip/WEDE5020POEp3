@@ -1,0 +1,907 @@
+/* Ora's Bakery - Part 2 CSS
+   Beginner-friendly stylesheet with a purple bakery colour scheme.
+   Main colours: cream, royal purple, soft lilac and orange accent. */
+
+/* 1. COLOUR SETTINGS */
+:root {
+    --cream: #fffaf2;
+    --white: #ffffff;
+    --brown: #7b2d8b;        /* main purple (name kept so every rule still works) */
+    --dark-brown: #4a1a54;   /* deep purple */
+    --caramel: #b77ac2;      /* soft purple */
+    --peach: #f3d9f7;        /* light lilac */
+    --gold: #e08a00;         /* orange accent */
+    --text: #333333;
+    --muted: #666666;
+    --border: #e5b8ed;
+}
+
+/* 2. GENERAL PAGE SETTINGS */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: var(--brown);
+}
+
+a:hover {
+    color: #4a1a54;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* 3. SKIP LINK */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 10px;
+    background: var(--white);
+    z-index: 100;
+}
+
+.skip-link:focus {
+    left: 10px;
+}
+
+/* 4. HEADER AND LOGO */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: var(--brown);
+    color: var(--white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 26px;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+}
+
+.brand strong {
+    font-family: Georgia, serif;
+    font-size: 21px;
+}
+
+.brand small {
+    color: var(--peach);
+    font-size: 12px;
+}
+
+/* 5. NAVIGATION MENU */
+.primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.primary-nav a {
+    padding: 9px 11px;
+    border-radius: 6px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.primary-nav a:hover {
+    background-color: var(--caramel);
+    color: var(--dark-brown);
+}
+
+.nav-toggle {
+    display: none;
+    padding: 8px 13px;
+    border: 1px solid var(--peach);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* 6. MAIN CONTENT WIDTH */
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* 7. HOMEPAGE HERO SECTION */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    padding: 55px 0 40px;
+}
+
+.hero-copy {
+    padding: 15px 0;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: #8a3a9c;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1,
+.page-intro h1 {
+    margin: 5px 0 18px;
+    color: var(--brown);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.15;
+}
+
+.hero-copy > p:not(.eyebrow) {
+    max-width: 550px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-image {
+    height: 420px;
+    overflow: hidden;
+    border-radius: 45% 45% 15px 15px;
+    box-shadow: 0 8px 22px rgba(74, 26, 84, 0.18);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+/* 8. BUTTONS AND LINKS */
+.button {
+    display: inline-block;
+    padding: 11px 22px;
+    border: 2px solid var(--brown);
+    border-radius: 25px;
+    background-color: var(--brown);
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark-brown);
+}
+
+.button-light {
+    background-color: var(--white);
+    color: var(--brown);
+    border-color: var(--white);
+}
+
+.button-light:hover {
+    background-color: var(--peach);
+    color: var(--dark-brown);
+}
+
+.button-outline {
+    background-color: transparent;
+    color: var(--brown);
+}
+
+.text-link {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 9. GENERAL SECTIONS AND HEADINGS */
+.section {
+    padding: 45px 0;
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.section-heading h2,
+.split-callout h2,
+.content-two-col h2,
+.values-panel h2,
+.notice h2 {
+    margin: 5px 0 12px;
+    color: var(--brown);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+}
+
+.section-heading p,
+.page-intro p {
+    color: var(--muted);
+}
+
+.feature-grid,
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card,
+.menu-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(74, 26, 84, 0.10);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.feature-card div,
+.menu-card > div {
+    padding: 15px;
+}
+
+.feature-card h3,
+.benefit-grid h3,
+.menu-card h3 {
+    margin: 5px 0;
+    color: var(--brown);
+}
+
+.feature-card p,
+.benefit-grid p {
+    color: var(--muted);
+}
+
+.split-callout {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 30px;
+    margin: 35px 0;
+    padding: 30px;
+    border-radius: 14px;
+    background-color: var(--brown);
+    color: var(--white);
+}
+
+.split-callout h2 {
+    color: var(--white);
+}
+
+.split-callout p:not(.eyebrow) {
+    color: var(--peach);
+}
+
+.split-callout img {
+    width: 100%;
+    height: 270px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.benefit-grid > div {
+    padding: 18px;
+    border-top: 3px solid var(--caramel);
+    background-color: var(--white);
+}
+
+.benefit-grid span {
+    color: #8a3a9c;
+    font-weight: bold;
+}
+
+/* 10. OTHER PAGE INTRODUCTIONS */
+.page-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 55px 0 30px;
+    text-align: center;
+}
+
+.page-intro h1 {
+    font-size: clamp(34px, 4vw, 48px);
+}
+
+.content-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    padding: 15px 0 45px;
+}
+
+.content-two-col img {
+    width: 100%;
+    height: 340px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.content-two-col p {
+    color: var(--muted);
+}
+
+.values-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 45px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: var(--peach);
+}
+
+.values-panel > div {
+    padding: 12px;
+}
+
+/* 11. MENU PAGE */
+.menu-tools {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+}
+
+.menu-tools label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.menu-tools input {
+    width: 100%;
+    max-width: 500px;
+    padding: 11px;
+    border: 1px solid var(--caramel);
+    border-radius: 6px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.filter-button {
+    padding: 8px 15px;
+    border: 1px solid var(--caramel);
+    border-radius: 20px;
+    background-color: var(--white);
+    color: var(--brown);
+    cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button.is-active {
+    background-color: var(--brown);
+    color: var(--white);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+}
+
+.menu-card strong {
+    color: #8a3a9c;
+}
+
+.menu-category {
+    color: #8a3a9c;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu-card[hidden] {
+    display: none;
+}
+
+.notice {
+    margin: 35px 0;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: var(--peach);
+}
+
+/* 12. GALLERY PAGE AND IMAGE LIGHTBOX */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+    color: var(--brown);
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.gallery-item:hover img {
+    opacity: 0.85;
+}
+
+.gallery-item span {
+    display: block;
+    padding: 12px;
+}
+
+.lightbox {
+    width: 90%;
+    max-width: 850px;
+    padding: 15px;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox::backdrop {
+    background-color: rgba(30, 10, 38, 0.8);
+}
+
+.lightbox img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.lightbox-close {
+    display: block;
+    width: 38px;
+    height: 38px;
+    margin-left: auto;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--brown);
+    color: var(--white);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* 13. ENQUIRY AND CONTACT FORMS */
+.form-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 25px;
+    padding-bottom: 50px;
+}
+
+.form-intro {
+    padding: 25px;
+    border-radius: 12px;
+    background-color: var(--peach);
+}
+
+.form-intro h2,
+.contact-card h2 {
+    margin-top: 0;
+    color: var(--brown);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.form-intro p,
+.form-intro li,
+.contact-card p {
+    color: var(--muted);
+}
+
+.check-list {
+    padding-left: 20px;
+}
+
+.site-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(74, 26, 84, 0.10);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.field.full,
+.form-result.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    font-weight: bold;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #b77ac2;
+    border-radius: 6px;
+    background-color: #fffdff;
+}
+
+.field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.menu-tools input:focus {
+    border-color: var(--brown);
+}
+
+.field .error {
+    color: #a32626;
+    font-size: 13px;
+}
+
+[aria-invalid="true"] {
+    border: 2px solid #b3261e !important;
+}
+
+.form-result {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.form-result:empty {
+    display: none;
+}
+
+.form-result.success {
+    background-color: #e6f4e7;
+    color: #245b2a;
+}
+
+.form-result.error-state {
+    background-color: #ffe9e6;
+    color: #8a241b;
+}
+
+/* 14. CONTACT PAGE */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-card {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+}
+
+.map-placeholder {
+    margin: 12px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--peach);
+}
+
+.map-placeholder a {
+    font-weight: bold;
+}
+
+.contact-form-layout {
+    padding-top: 15px;
+}
+
+/* 15. FOOTER */
+.site-footer {
+    margin-top: 35px;
+    padding: 35px 5%;
+    background-color: var(--dark-brown);
+    color: var(--white);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.7fr;
+    gap: 25px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    color: var(--gold);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.site-footer h2 {
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.site-footer p {
+    color: var(--peach);
+    font-size: 14px;
+}
+
+.site-footer a {
+    color: var(--peach);
+}
+
+.copyright {
+    max-width: 1150px;
+    margin: 25px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 13px;
+}
+
+/* 16. TABLET SCREEN */
+@media screen and (max-width: 900px) {
+    .primary-nav a {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+
+    .hero {
+        gap: 20px;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 17. MOBILE SCREEN */
+@media screen and (max-width: 700px) {
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .primary-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 0;
+    }
+
+    .primary-nav.is-open {
+        display: flex;
+    }
+
+    .primary-nav a {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .hero,
+    .content-two-col,
+    .split-callout,
+    .form-layout,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero-image {
+        height: 280px;
+        order: -1;
+    }
+
+    .feature-grid,
+    .benefit-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .split-callout {
+        padding: 22px;
+    }
+
+    .split-callout img {
+        height: 220px;
+    }
+
+    .values-panel {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 18. SMALL MOBILE SCREEN */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 92%;
+    }
+
+    .feature-grid,
+    .benefit-grid,
+    .menu-grid,
+    .gallery-grid,
+    .site-form,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: auto;
+    }
+
+    .page-intro {
+        padding: 35px 0 20px;
+    }
+
+    .site-form {
+        padding: 15px;
+    }
+
+    .field.full,
+    .form-result.full {
+        grid-column: auto;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+
+    .button-outline {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+
+/* 19. ACCESSIBILITY: REDUCE ANIMATION IF REQUESTED */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
